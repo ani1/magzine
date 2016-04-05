@@ -1,0 +1,12 @@
+<div class="panel panel-default" style="margin-top:20px;">
+  <div class="panel-heading">
+    <h3 class="panel-title">Articles
+    <%= content_tag(:p ,(link_to "New Article", new_article_path), class: "pull-right") %></h3>
+  </div>
+    <ul class="list-group panel-body">
+      <% @articles.each do |article| %>
+        <li class="list-group-item"><%= link_to article.title, article %></li>
+      <% end %>
+      <%= content_tag(:p,"No Articles found",class: :strong) if @articles.empty? %>
+    </ul>
+</div>
