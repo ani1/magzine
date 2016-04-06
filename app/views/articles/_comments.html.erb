@@ -30,7 +30,7 @@
   <li>
     <%= comment.comment %>
     <%= link_to "Reply", new_comment_path(:parent_id => comment.id, :article_id => comment.article_id), :remote => "true" %>
-    <% if comment.comments.count <= 0 %>
+    <% if(comment.comments.count <= 0 &&  && reply.user_id == current_user.id) %>
       | <%= link_to "Destroy", comment_path(:id => comment.id,:article_id => comment.article_id), :confirm => "Are you sure?", :remote => "true",:method => :delete %>
   <% end %>
   <ul><% draw_tree(comment) %></ul>
